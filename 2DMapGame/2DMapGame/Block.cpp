@@ -7,7 +7,7 @@ Block::Block(int x, int y)
 	this->y = y;
 }
 
-void WallBlock::drawBlock()
+void WallBlock::drawBlock() const
 {
 	glBegin(GL_QUADS);
 	glVertex2d(x*width, y*height);
