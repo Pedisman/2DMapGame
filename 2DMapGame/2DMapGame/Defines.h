@@ -14,6 +14,9 @@ extern int map[xDim][yDim];
 // Block types
 enum { WALL_BLOCK = 1 };
 
+// Key enums
+enum {ESCAPE = 27, LEFT = 100, UP = 101, RIGHT = 102, DOWN = 103};
+
 // Declare Block Colors
 extern const int wallBlockColor[3];
 
