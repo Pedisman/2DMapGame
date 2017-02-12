@@ -9,7 +9,7 @@ extern const int windowHeight;
 static const int xDim = 20;
 static const int yDim = 20;
 
-extern int map[xDim][yDim];
+extern int map[yDim][xDim];
 
 // Block types
 enum { WALL_BLOCK = 1 };

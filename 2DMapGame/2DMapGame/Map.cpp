@@ -2,12 +2,12 @@
 
 WallMap myWallMap(map);
 
-template <typename T, int Tx, int Ty>
-WallMap::WallMap(T (&inputArray) [Tx][Ty])
+template <typename T, int Ty, int Tx>
+WallMap::WallMap(T (&inputArray) [Ty][Tx])
 {
-	for (int i = 0; i < Tx; ++i)
+	for (int i = 0; i < Ty; ++i)
 	{
-		for (int j = 0; j < Ty; ++j)
+		for (int j = 0; j < Tx; ++j)
 		{
 			if (map[i][j] == WALL_BLOCK)
 			{
