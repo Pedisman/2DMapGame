@@ -11,7 +11,7 @@ protected:
 	int x, y;
 public:
 	Block(int x, int y);
-	virtual void drawBlock(){}
+	virtual void drawBlock() const {}
 
 	virtual ~Block(){}
 };
@@ -19,7 +19,8 @@ public:
 class WallBlock : public Block
 {
 public:
-	void drawBlock() override;
+	WallBlock(int x, int y) : Block(x, y){}
+	void drawBlock() const override;
 };
 
 #endif // BLOCK_h
