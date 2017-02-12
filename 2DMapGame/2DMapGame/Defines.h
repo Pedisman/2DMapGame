@@ -14,4 +14,7 @@ extern int map[xDim][yDim];
 // Block types
 enum { WALL_BLOCK = 1 };
 
+// Declare Block Colors
+extern const int wallBlockColor[3];
+
 #endif // DEFINES_h

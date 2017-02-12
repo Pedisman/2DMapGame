@@ -26,3 +26,6 @@ int map[xDim][yDim] = {
 	{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
 };
+
+// Define Block Colors
+const int wallBlockColor[3] = { 1, 0, 0 }; // Red
