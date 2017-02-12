@@ -11,4 +11,7 @@ static const int yDim = 20;
 
 extern int map[xDim][yDim];
 
+// Block types
+enum { WALL_BLOCK = 1 };
+
 #endif // DEFINES_h
