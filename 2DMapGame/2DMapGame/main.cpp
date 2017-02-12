@@ -1,5 +1,6 @@
 #include <GL/freeglut.h>
 #include "Defines.h"
+#include "Map.h"
 
 void render()
 {
@@ -9,6 +10,7 @@ void render()
 	gluOrtho2D(0, windowWidth, windowHeight, 0);
 
 	// Call drawing functions in here
+	myWallMap.drawMap();
 
 	glutSwapBuffers();
 }
