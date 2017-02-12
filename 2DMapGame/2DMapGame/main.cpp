@@ -1,6 +1,7 @@
 #include <GL/freeglut.h>
 #include "Defines.h"
 #include "Map.h"
+#include "KeyBoardHandlers.h"
 
 void render()
 {
@@ -17,6 +18,7 @@ void render()
 
 int main(int argc, char** argv)
 {
+	// Initialise standard glut parameters
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowPosition(100, 100);
@@ -27,6 +29,10 @@ int main(int argc, char** argv)
 	glutDisplayFunc(render);
 	glutIdleFunc(render);
 
+	// Register Keyboard Handlers
+	glutKeyboardFunc(normalKeyHandler);
+
+	// Initialise the loop
 	glutMainLoop();
 
 	return 0;
