@@ -12,6 +12,7 @@ protected:
 public:
 	Block(int x, int y);
 	virtual void drawBlock() const {}
+	bool collision(const Block* inputBlock) const;
 
 	virtual ~Block(){}
 };

@@ -7,6 +7,12 @@ Block::Block(int x, int y)
 	this->y = y;
 }
 
+bool Block::collision(const Block* inputBlock) const
+{
+	return (this->x == inputBlock->x && this->y == inputBlock->y);
+}
+
+
 void WallBlock::drawBlock() const
 {
 	glBegin(GL_QUADS);
