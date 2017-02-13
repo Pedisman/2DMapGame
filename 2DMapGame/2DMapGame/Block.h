@@ -8,7 +8,7 @@ class Block
 protected:
 	int width = windowWidth / xDim;
 	int height = windowHeight / yDim;
-	int x, y;
+	int topLeftX, topLeftY;
 public:
 	Block(int x, int y);
 	virtual void drawBlock() const {}

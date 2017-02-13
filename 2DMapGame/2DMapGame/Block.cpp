@@ -3,8 +3,8 @@
 
 Block::Block(int x, int y)
 {
-	this->x = x;
-	this->y = y;
+	topLeftX = x * width;
+	topLeftY = y * height;
 }
 
 bool Block::collision(const Block* inputBlock) const
@@ -17,9 +17,9 @@ void WallBlock::drawBlock() const
 {
 	glBegin(GL_QUADS);
 	glColor3d(wallBlockColor[0], wallBlockColor[1], wallBlockColor[2]);
-	glVertex2d(x*width, y*height);
-	glVertex2d(x*width + width, y*height);
-	glVertex2d(x*width + width, y*height + height);
-	glVertex2d(x*width, y*height + height);
+	glVertex2d(topLeftX, topLeftY);
+	glVertex2d(topLeftX + width, topLeftY);
+	glVertex2d(topLeftX + width, topLeftY + height);
+	glVertex2d(topLeftX, topLeftY + height);
 	glEnd();
 }
