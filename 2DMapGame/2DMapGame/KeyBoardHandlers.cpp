@@ -49,3 +49,16 @@ void keyReleaseHandler(int key, int x, int y)
 		pressedKeys[DOWN] = false;
 	}
 }
+
+int numKeysPressed()
+{
+	int count = 0;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (pressedKeys[i] == true)
+		{
+			++count;
+		}
+	}
+	return count;
+}
