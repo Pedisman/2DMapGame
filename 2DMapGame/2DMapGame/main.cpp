@@ -4,25 +4,13 @@
 #include "KeyBoardHandlers.h"
 #include "CallbackTimerHandlers.h"
 
-static bool firstTime = true;
-
 void render()
 {
-	static int offsetX;
-	static int offsetY;
-
-	if (firstTime)
-	{
-		offsetX = (windowWidth + myPlayer.getWidth()) / 2;
-		offsetY = (windowHeight + myPlayer.getHeight()) / 2;
-		firstTime = false;
-	}
-
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
 	gluOrtho2D(0, windowWidth, windowHeight, 0);
-	glTranslated(screenScale*(myPlayer.getAccumulatedX()) - offsetX, screenScale*(myPlayer.getAccumulatedY()) - offsetY, 0);
-	glScaled(screenScale, screenScale, 1); // zoom in so we are showing only a submap region
+	glScaled(screenScale, screenScale, 0); // zoom in so we are showing only a submap regions
+	glTranslated((myPlayer.getAccumulatedX()), (myPlayer.getAccumulatedY()), 0);
 	// Call drawing functions in here
 	myWallMap.drawMap();
 	myPlayer.drawBlock();
