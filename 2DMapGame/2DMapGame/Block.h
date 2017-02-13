@@ -24,5 +24,12 @@ public:
 	void drawBlock() const override;
 };
 
+class PlayerBlock : public Block
+{
+public:
+	PlayerBlock(int x, int y) : Block(x, y){}
+	void drawBlock() const override;
+};
+
 #endif // BLOCK_h
 

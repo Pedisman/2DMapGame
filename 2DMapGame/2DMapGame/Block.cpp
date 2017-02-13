@@ -1,6 +1,7 @@
 #include "Block.h"
 #include <GL/freeglut.h>
 
+// Block Abstract class function definitions
 Block::Block(int x, int y)
 {
 	topLeftX = x * width;
@@ -16,15 +17,28 @@ bool Block::collision(const Block* inputBlock) const
 	{
 		return false;
 	}
-
 	return true;
 }
 
+// Wall Block function definitions
 
 void WallBlock::drawBlock() const
 {
 	glBegin(GL_QUADS);
 	glColor3d(wallBlockColor[0], wallBlockColor[1], wallBlockColor[2]);
+	glVertex2d(topLeftX, topLeftY);
+	glVertex2d(topLeftX + width, topLeftY);
+	glVertex2d(topLeftX + width, topLeftY + height);
+	glVertex2d(topLeftX, topLeftY + height);
+	glEnd();
+}
+
+// Player Block function definitions
+
+void PlayerBlock::drawBlock() const
+{
+	glBegin(GL_QUADS);
+	glColor3d(playerBlockColor[0], playerBlockColor[1], playerBlockColor[2]);
 	glVertex2d(topLeftX, topLeftY);
 	glVertex2d(topLeftX + width, topLeftY);
 	glVertex2d(topLeftX + width, topLeftY + height);

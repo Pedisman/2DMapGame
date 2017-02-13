@@ -19,5 +19,6 @@ enum {ESCAPE = 27, LEFT = 100, UP = 101, RIGHT = 102, DOWN = 103};
 
 // Declare Block Colors
 extern const int wallBlockColor[3];
+extern const int playerBlockColor[3];
 
 #endif // DEFINES_h
