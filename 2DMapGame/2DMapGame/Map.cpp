@@ -11,7 +11,7 @@ WallMap::WallMap(T (&inputArray) [Ty][Tx])
 		{
 			if (map[i][j] == WALL_BLOCK)
 			{
-				blocks.push_back(WallBlock(i, j));
+				blocks.push_back(WallBlock(j, i));
 			}
 		}
 	}
