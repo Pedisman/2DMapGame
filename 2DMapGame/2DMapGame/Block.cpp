@@ -49,3 +49,11 @@ void PlayerBlock::drawBlock() const
 	glVertex2d(topLeftX, topLeftY + height);
 	glEnd();
 }
+
+//void PlayerBlock::movePlayer(const WallMap& inputMap)
+//{
+//	for (int i = 0; i < inputMap.blocks.size(); ++i)
+//	{
+//		if
+//	}
+//}

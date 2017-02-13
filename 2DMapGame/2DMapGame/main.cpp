@@ -32,6 +32,7 @@ int main(int argc, char** argv)
 
 	// Register Keyboard Handlers
 	glutKeyboardFunc(normalKeyHandler);
+	glutFunc
 
 	// Initialise the loop
 	glutMainLoop();
