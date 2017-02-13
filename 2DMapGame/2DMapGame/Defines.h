@@ -25,4 +25,7 @@ extern bool pressedKeys[4];
 extern const int wallBlockColor[3];
 extern const int playerBlockColor[3];
 
+// Callback timer period
+extern const int playerPeriod;
+
 #endif // DEFINES_h
