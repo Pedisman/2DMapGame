@@ -78,8 +78,8 @@ PlayerBlock::PlayerBlock(int x, int y) : Block(x, y)
 {
 	lastX = topLeftX;
 	lastY = topLeftY;
-	accumulatedX = 0;
-	accumulatedY = 0;
+	accumulatedX = -topLeftX + (windowWidth/2 - width);
+	accumulatedY = -topLeftY + (windowHeight/2 - height);
 }
 
 void PlayerBlock::drawBlock() const
