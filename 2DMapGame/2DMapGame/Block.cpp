@@ -56,7 +56,7 @@ void PlayerBlock::drawBlock() const
 
 void PlayerBlock::movePlayer()
 {
-	int tempSpeed = (numKeysPressed() > 1) ? sqrt(pow(speed, 2) * 2)/2 : speed;
+	int tempSpeed = (numKeysPressed() > 1) ? speed/sqrt(2) : speed;
 	int prevX = topLeftX;
 	int prevY = topLeftY;
 
