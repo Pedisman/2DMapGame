@@ -5,5 +5,6 @@
 void playerUpdate(int te)
 {
 	myPlayer.movePlayer();
+	enemy1.idleMove();
 	glutTimerFunc(playerUpdatePeriod, playerUpdate, 1);
 }
