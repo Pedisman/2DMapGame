@@ -9,7 +9,15 @@ Block::Block(int x, int y)
 
 bool Block::collision(const Block* inputBlock) const
 {
-	return (this->x == inputBlock->x && this->y == inputBlock->y);
+	if (topLeftX >= inputBlock->topLeftX + inputBlock->width ||
+		topLeftX + width <= inputBlock->topLeftX || 
+		topLeftY >= inputBlock->topLeftY + inputBlock->topLeftY || 
+		topLeftY + height <= inputBlock->topLeftY)
+	{
+		return false;
+	}
+
+	return true;
 }
 
 
