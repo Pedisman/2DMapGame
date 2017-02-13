@@ -34,10 +34,15 @@ public:
 class PlayerBlock : public Block
 {
 	int speed = playerSpeed;
+	int accumulatedX, accumulatedY;
+	int lastX, lastY;
 public:
-	PlayerBlock(int x, int y) : Block(x, y){}
+	PlayerBlock(int x, int y);
 	void drawBlock() const override;
 	void movePlayer();
+	void updateAccumulated();
+	int getAccumulatedX() const;
+	int getAccumulatedY() const;
 };
 
 class EnemyContext;

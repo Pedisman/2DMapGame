@@ -74,6 +74,14 @@ void WallBlock::drawBlock() const
 
 // Player Block function definitions
 
+PlayerBlock::PlayerBlock(int x, int y) : Block(x, y)
+{
+	lastX = topLeftX;
+	lastY = topLeftY;
+	accumulatedX = 0;
+	accumulatedY = 0;
+}
+
 void PlayerBlock::drawBlock() const
 {
 	glBegin(GL_QUADS);
@@ -124,6 +132,26 @@ void PlayerBlock::movePlayer()
 		}
 	}
 }
+
+void PlayerBlock::updateAccumulated()
+{
+	accumulatedX += lastX - topLeftX;
+	accumulatedY += lastY - topLeftY;
+
+	lastX = topLeftX;
+	lastY = topLeftY;
+}
+
+int PlayerBlock::getAccumulatedX() const
+{
+	return accumulatedX;
+}
+
+int PlayerBlock::getAccumulatedY() const
+{
+	return accumulatedY;
+}
+
 
 // Derived enemy block class
 
