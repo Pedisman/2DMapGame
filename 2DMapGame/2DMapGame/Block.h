@@ -10,6 +10,10 @@ protected:
 	int height = windowHeight / yDim;
 	int topLeftX, topLeftY;
 public:
+	int getTopLeftX() const;
+	int getTopLeftY() const;
+	int distanceBetween(const Block* inputBlock) const;
+
 	Block(int x, int y);
 	virtual void drawBlock() const {}
 	bool collision(const Block* inputBlock) const;
@@ -40,7 +44,7 @@ public:
 	EnemyBlock(int x, int y) : Block(x, y){}
 	void drawBlock() const override;
 	void idleMove();
-	void followPlayer();
+	void followPlayer(const Block* player);
 };
 
 // Player Block Init

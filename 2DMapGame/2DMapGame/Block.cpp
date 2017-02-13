@@ -16,6 +16,17 @@ Block::Block(int x, int y)
 	topLeftY = y * height;
 }
 
+int Block::getTopLeftX() const
+{
+	return topLeftX;
+}
+
+int Block::getTopLeftY() const
+{
+	return topLeftY;
+}
+
+
 bool Block::collision(const Block* inputBlock) const
 {
 	if (topLeftX >= inputBlock->topLeftX + inputBlock->width ||
@@ -26,6 +37,13 @@ bool Block::collision(const Block* inputBlock) const
 		return false;
 	}
 	return true;
+}
+
+int Block::distanceBetween(const Block* inputBlock) const
+{
+	double x = inputBlock->getTopLeftX() - topLeftX;
+	double y = inputBlock->getTopLeftY() - topLeftY;
+	return sqrt(pow(x, 2) + pow(y, 2));
 }
 
 // Wall Block function definitions
@@ -116,7 +134,39 @@ void EnemyBlock::idleMove()
 	topLeftX += speed;
 }
 
-void EnemyBlock::followPlayer()
+void EnemyBlock::followPlayer(const Block* player)
 {
-	
+	int tempSpeed = (this->distanceBetween(player) > speed) ? speed : this->distanceBetween(player);
+
+	double tempX = (player->getTopLeftX() - topLeftX);
+	double tempY = (player->getTopLeftY() - topLeftY);
+
+	int signX = signbit(tempX) ? -1 : 1;
+	int signY = signbit(tempY) ? -1 : 1;
+
+	//int signX = (tempX >= 0) ? 1 : -1;
+	//int signY = (tempY >= 0) ? 1 : -1;
+
+	if (tempX == 0)
+	{
+		topLeftY += signY * tempSpeed;
+	}
+	else if (tempY == 0)
+	{
+		topLeftX +=  signX * tempSpeed;
+	}
+	else if (tempY == 0 && tempX == 0)
+	{
+		// doNothing
+	}
+	else
+	{
+		auto ratio = tempY / tempX;
+
+		auto newX = tempSpeed / sqrt(1 + pow(ratio, 2));
+		auto newY = ratio * newX;
+
+		topLeftX += signX * abs(newX);
+		topLeftY += signY * abs(newY);
+	}
 }
