@@ -11,6 +11,8 @@ protected:
 	int height = windowHeight / yDim;
 	int topLeftX, topLeftY;
 public:
+	int getHeight() const;
+	int getWidth() const;
 	int getTopLeftX() const;
 	int getTopLeftY() const;
 	int distanceBetween(const Block* inputBlock) const;

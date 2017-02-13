@@ -17,6 +17,18 @@ Block::Block(int x, int y)
 	topLeftY = y * height;
 }
 
+int Block::getWidth() const
+{
+	return width;
+}
+
+
+int Block::getHeight() const
+{
+	return height;
+}
+
+
 int Block::getTopLeftX() const
 {
 	return topLeftX;
@@ -153,11 +165,11 @@ void EnemyBlock::followPlayer(const Block* player)
 
 	if (tempX == 0)
 	{
-		topLeftY += signY * tempSpeed;
+		topLeftY += signY * abs(tempSpeed);
 	}
 	else if (tempY == 0)
 	{
-		topLeftX +=  signX * tempSpeed;
+		topLeftX +=  signX * abs(tempSpeed);
 	}
 	else if (tempY == 0 && tempX == 0)
 	{
