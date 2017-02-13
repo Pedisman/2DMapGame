@@ -50,10 +50,22 @@ void PlayerBlock::drawBlock() const
 	glEnd();
 }
 
-//void PlayerBlock::movePlayer(const WallMap& inputMap)
-//{
-//	for (int i = 0; i < inputMap.blocks.size(); ++i)
-//	{
-//		if
-//	}
-//}
+void PlayerBlock::movePlayer()
+{
+	if (pressedKeys[LEFT])
+	{
+		topLeftX -= speed;
+	}
+	if (pressedKeys[UP])
+	{
+		topLeftY -= speed;
+	}
+	if (pressedKeys[RIGHT])
+	{
+		topLeftX += speed;
+	}
+	if (pressedKeys[DOWN])
+	{
+		topLeftY += speed;
+	}
+}

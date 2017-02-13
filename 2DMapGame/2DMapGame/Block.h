@@ -26,9 +26,11 @@ public:
 
 class PlayerBlock : public Block
 {
+	int speed = 10;
 public:
 	PlayerBlock(int x, int y) : Block(x, y){}
 	void drawBlock() const override;
+	void movePlayer();
 };
 
 // Player Block Init
