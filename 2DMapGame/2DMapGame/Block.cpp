@@ -59,23 +59,33 @@ void PlayerBlock::movePlayer()
 	if (pressedKeys[LEFT])
 	{
 		topLeftX -= speed;
+		if (myWallMap.collision(this))
+		{
+			topLeftX += speed;
+		}
 	}
 	if (pressedKeys[UP])
 	{
 		topLeftY -= speed;
+		if (myWallMap.collision(this))
+		{
+			topLeftY += speed;
+		}
 	}
 	if (pressedKeys[RIGHT])
 	{
 		topLeftX += speed;
+		if (myWallMap.collision(this))
+		{
+			topLeftX -= speed;
+		}
 	}
 	if (pressedKeys[DOWN])
 	{
 		topLeftY += speed;
-	}
-
-	if (myWallMap.collision(this))
-	{
-		topLeftX = prevX;
-		topLeftY = prevY;
+		if (myWallMap.collision(this))
+		{
+			topLeftY -= speed;
+		}
 	}
 }
