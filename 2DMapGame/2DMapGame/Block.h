@@ -26,7 +26,7 @@ public:
 
 class PlayerBlock : public Block
 {
-	int speed = 10;
+	int speed = playerSpeed;
 public:
 	PlayerBlock(int x, int y) : Block(x, y){}
 	void drawBlock() const override;

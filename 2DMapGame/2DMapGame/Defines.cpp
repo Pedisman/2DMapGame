@@ -29,6 +29,7 @@ int map[yDim][xDim] = {
 
 // Define pressed keys
 bool pressedKeys[4] = { false, false, false, false };
+int playerSpeed = 3;
 
 // Define Block Colors
 const int wallBlockColor[3] = { 1, 0, 0 }; // Red

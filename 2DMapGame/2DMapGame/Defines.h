@@ -20,6 +20,7 @@ enum {LEFT = 0, UP, RIGHT, DOWN};
 
 // Player movement register
 extern bool pressedKeys[4];
+extern int playerSpeed;
 
 // Declare Block Colors
 extern const int wallBlockColor[3];
