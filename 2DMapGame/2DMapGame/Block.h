@@ -62,7 +62,6 @@ public:
 
 // Player Block Init
 extern PlayerBlock myPlayer;
-extern EnemyBlock enemy1;
 
 #endif // BLOCK_h
 

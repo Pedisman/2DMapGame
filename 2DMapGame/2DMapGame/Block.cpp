@@ -7,7 +7,6 @@
 
 // Player Init definition
 PlayerBlock myPlayer(10, 10);
-EnemyBlock enemy1(1, 18);
 
 // Block Abstract class function definitions
 

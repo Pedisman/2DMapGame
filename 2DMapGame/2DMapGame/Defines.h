@@ -13,7 +13,7 @@ static const int yDim = 20;
 extern int map[yDim][xDim];
 
 // Block types
-enum { WALL_BLOCK = 1 };
+enum { WALL_BLOCK = 1, ENEMY_BLOCK };
 
 // Key enums
 enum {ESCAPE_KEY = 27, LEFT_KEY = 100, UP_KEY = 101, RIGHT_KEY = 102, DOWN_KEY = 103};
