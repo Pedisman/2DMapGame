@@ -154,6 +154,9 @@ void EnemyBlock::idleMove()
 
 void EnemyBlock::followPlayer(const Block* player)
 {
+	int prevX = topLeftX;
+	int prevY = topLeftY;
+
 	int tempSpeed = (this->distanceBetween(player) > speed) ? speed : this->distanceBetween(player);
 
 	double tempX = (player->getTopLeftX() - topLeftX);
@@ -169,8 +172,9 @@ void EnemyBlock::followPlayer(const Block* player)
 	}
 	else if (tempY == 0)
 	{
-		topLeftX +=  signX * abs(tempSpeed);
+		topLeftX += signX * abs(tempSpeed);
 	}
+	//else if (abs(tempY) <= abs(speed) + 1 && abs(tempX) <= abs(speed) + 1)
 	else if (tempY == 0 && tempX == 0)
 	{
 		// doNothing
@@ -184,6 +188,12 @@ void EnemyBlock::followPlayer(const Block* player)
 
 		topLeftX += signX * abs(newX);
 		topLeftY += signY * abs(newY);
+	}
+
+	if (this->collision(player))
+	{
+		topLeftX = prevX;
+		topLeftY = prevY;
 	}
 }
 
