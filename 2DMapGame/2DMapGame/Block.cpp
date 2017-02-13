@@ -89,3 +89,25 @@ void PlayerBlock::movePlayer()
 		}
 	}
 }
+
+// Derived enemy block class
+
+void EnemyBlock::drawBlock() const
+{
+	glBegin(GL_QUADS);
+	glColor3d(enemyBlockColor[0], enemyBlockColor[1], enemyBlockColor[2]);
+	glVertex2d(topLeftX, topLeftY);
+	glVertex2d(topLeftX + width, topLeftY);
+	glVertex2d(topLeftX + width, topLeftY + height);
+	glVertex2d(topLeftX, topLeftY + height);
+	glEnd();
+}
+
+void EnemyBlock::idleMove()
+{
+	if (myWallMap.collision(this))
+	{
+		speed = -speed;
+	}
+	topLeftX += speed;
+}

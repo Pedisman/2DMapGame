@@ -33,6 +33,15 @@ public:
 	void movePlayer();
 };
 
+class EnemyBlock : public Block
+{
+	int speed = enemySpeed;
+public:
+	EnemyBlock(int x, int y) : Block(x, y){}
+	void drawBlock() const override;
+	void idleMove();
+};
+
 // Player Block Init
 extern PlayerBlock myPlayer;
 
