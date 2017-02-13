@@ -1,7 +1,11 @@
 #include "Block.h"
 #include <GL/freeglut.h>
 
+// Player Init definition
+PlayerBlock myPlayer(10, 10);
+
 // Block Abstract class function definitions
+
 Block::Block(int x, int y)
 {
 	topLeftX = x * width;

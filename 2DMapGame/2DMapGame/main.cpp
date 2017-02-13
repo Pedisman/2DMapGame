@@ -12,6 +12,7 @@ void render()
 
 	// Call drawing functions in here
 	myWallMap.drawMap();
+	myPlayer.drawBlock();
 
 	glutSwapBuffers();
 }

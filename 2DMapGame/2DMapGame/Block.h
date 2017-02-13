@@ -31,5 +31,8 @@ public:
 	void drawBlock() const override;
 };
 
+// Player Block Init
+extern PlayerBlock myPlayer;
+
 #endif // BLOCK_h
 
