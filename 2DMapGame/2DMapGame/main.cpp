@@ -14,6 +14,7 @@ void render()
 	// Call drawing functions in here
 	myWallMap.drawMap();
 	myPlayer.drawBlock();
+	enemy1.drawBlock();
 
 	glutSwapBuffers();
 }
