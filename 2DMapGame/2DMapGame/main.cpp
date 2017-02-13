@@ -2,6 +2,7 @@
 #include "Defines.h"
 #include "Map.h"
 #include "KeyBoardHandlers.h"
+#include "CallbackTimerHandlers.h"
 
 void render()
 {
@@ -34,6 +35,9 @@ int main(int argc, char** argv)
 	glutKeyboardFunc(normalKeyHandler);
 	glutSpecialFunc(keyPressHandler);
 	glutSpecialUpFunc(keyReleaseHandler);
+
+	// Callback timers
+	glutTimerFunc(playerUpdatePeriod, playerUpdate, 1);
 
 	// Initialise the loop
 	glutMainLoop();

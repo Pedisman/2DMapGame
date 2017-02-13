@@ -26,6 +26,6 @@ extern const int wallBlockColor[3];
 extern const int playerBlockColor[3];
 
 // Callback timer period
-extern const int playerPeriod;
+extern const int playerUpdatePeriod;
 
 #endif // DEFINES_h

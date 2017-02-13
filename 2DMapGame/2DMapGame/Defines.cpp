@@ -35,4 +35,4 @@ const int wallBlockColor[3] = { 1, 0, 0 }; // Red
 const int playerBlockColor[3] = { 0, 0, 1 }; // Blue
 
 // Callback timer period
-const int playerPeriod = 10;
+const int playerUpdatePeriod = 10;
