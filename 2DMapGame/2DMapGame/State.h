@@ -13,10 +13,12 @@ public:
 
 class EnemyContext
 {
+	// Don't need to worry about deleting this memory as referenced states are global definitions on the stack
 	EnemyState* state;
 public:
 	EnemyContext();
 	void updateState(EnemyBlock &inputBlock);
+	void action(EnemyBlock &inputBlock) const;
 };
 
 // Derived enemy states
