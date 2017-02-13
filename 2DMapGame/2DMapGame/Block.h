@@ -2,6 +2,7 @@
 #define BLOCK_h
 
 #include "Defines.h"
+#include <memory>
 
 class Block
 {
@@ -37,14 +38,19 @@ public:
 	void movePlayer();
 };
 
+class EnemyContext;
+
 class EnemyBlock : public Block
 {
+	std::unique_ptr<EnemyContext> context;
+	//EnemyContext* context;
 	int speed = enemySpeed;
 public:
 	EnemyBlock(int x, int y) : Block(x, y){}
 	void drawBlock() const override;
 	void idleMove();
 	void followPlayer(const Block* player);
+	//~EnemyBlock();
 };
 
 // Player Block Init

@@ -3,6 +3,7 @@
 #include "Map.h"
 #include "KeyBoardHandlers.h"
 #include <math.h>
+#include "State.h"
 
 // Player Init definition
 PlayerBlock myPlayer(10, 10);
@@ -168,3 +169,9 @@ void EnemyBlock::followPlayer(const Block* player)
 		topLeftY += signY * abs(newY);
 	}
 }
+
+//EnemyBlock::~EnemyBlock()
+//{
+//	delete 
+//}
+
