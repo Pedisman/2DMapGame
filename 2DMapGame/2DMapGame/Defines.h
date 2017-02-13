@@ -4,6 +4,7 @@
 // Display window dimension size declarations
 extern const int windowWidth;
 extern const int windowHeight;
+extern const double screenScale;
 
 // Map dimensions
 static const int xDim = 20;
