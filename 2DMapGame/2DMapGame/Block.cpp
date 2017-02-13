@@ -1,9 +1,12 @@
 #include "Block.h"
 #include <GL/freeglut.h>
 #include "Map.h"
+#include "KeyBoardHandlers.h"
+#include <math.h>
 
 // Player Init definition
 PlayerBlock myPlayer(10, 10);
+EnemyBlock enemy1(1, 18);
 
 // Block Abstract class function definitions
 
@@ -53,39 +56,40 @@ void PlayerBlock::drawBlock() const
 
 void PlayerBlock::movePlayer()
 {
+	int tempSpeed = (numKeysPressed() > 1) ? sqrt(pow(speed, 2) * 2)/2 : speed;
 	int prevX = topLeftX;
 	int prevY = topLeftY;
 
 	if (pressedKeys[LEFT])
 	{
-		topLeftX -= speed;
+		topLeftX -= tempSpeed;
 		if (myWallMap.collision(this))
 		{
-			topLeftX += speed;
+			topLeftX += tempSpeed;
 		}
 	}
 	if (pressedKeys[UP])
 	{
-		topLeftY -= speed;
+		topLeftY -= tempSpeed;
 		if (myWallMap.collision(this))
 		{
-			topLeftY += speed;
+			topLeftY += tempSpeed;
 		}
 	}
 	if (pressedKeys[RIGHT])
 	{
-		topLeftX += speed;
+		topLeftX += tempSpeed;
 		if (myWallMap.collision(this))
 		{
-			topLeftX -= speed;
+			topLeftX -= tempSpeed;
 		}
 	}
 	if (pressedKeys[DOWN])
 	{
-		topLeftY += speed;
+		topLeftY += tempSpeed;
 		if (myWallMap.collision(this))
 		{
-			topLeftY -= speed;
+			topLeftY -= tempSpeed;
 		}
 	}
 }
@@ -110,4 +114,9 @@ void EnemyBlock::idleMove()
 		speed = -speed;
 	}
 	topLeftX += speed;
+}
+
+void EnemyBlock::followPlayer()
+{
+	
 }
