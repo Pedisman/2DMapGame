@@ -141,11 +141,9 @@ void EnemyBlock::followPlayer(const Block* player)
 	double tempX = (player->getTopLeftX() - topLeftX);
 	double tempY = (player->getTopLeftY() - topLeftY);
 
+	// signbit returns true if negative
 	int signX = signbit(tempX) ? -1 : 1;
 	int signY = signbit(tempY) ? -1 : 1;
-
-	//int signX = (tempX >= 0) ? 1 : -1;
-	//int signY = (tempY >= 0) ? 1 : -1;
 
 	if (tempX == 0)
 	{
