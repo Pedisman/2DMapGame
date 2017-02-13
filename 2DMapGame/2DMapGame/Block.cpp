@@ -115,6 +115,11 @@ void PlayerBlock::movePlayer()
 
 // Derived enemy block class
 
+EnemyBlock::EnemyBlock(int x, int y) : Block(x, y)
+{
+	context = std::make_unique<EnemyContext>();
+}
+
 void EnemyBlock::drawBlock() const
 {
 	glBegin(GL_QUADS);
@@ -170,8 +175,9 @@ void EnemyBlock::followPlayer(const Block* player)
 	}
 }
 
-//EnemyBlock::~EnemyBlock()
-//{
-//	delete 
-//}
 
+void EnemyBlock::performAction()
+{
+	context->updateState(*this);
+	context->action(*this);
+}

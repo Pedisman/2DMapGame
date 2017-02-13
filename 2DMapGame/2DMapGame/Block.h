@@ -42,15 +42,15 @@ class EnemyContext;
 
 class EnemyBlock : public Block
 {
+	// Referenced object is declared on stack so don't need to manually delete
 	std::unique_ptr<EnemyContext> context;
-	//EnemyContext* context;
 	int speed = enemySpeed;
 public:
-	EnemyBlock(int x, int y) : Block(x, y){}
+	EnemyBlock(int x, int y);
 	void drawBlock() const override;
 	void idleMove();
 	void followPlayer(const Block* player);
-	//~EnemyBlock();
+	void performAction();
 };
 
 // Player Block Init
