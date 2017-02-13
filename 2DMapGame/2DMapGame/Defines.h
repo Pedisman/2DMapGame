@@ -15,7 +15,11 @@ extern int map[yDim][xDim];
 enum { WALL_BLOCK = 1 };
 
 // Key enums
-enum {ESCAPE = 27, LEFT = 100, UP = 101, RIGHT = 102, DOWN = 103};
+enum {ESCAPE_KEY = 27, LEFT_KEY = 100, UP_KEY = 101, RIGHT_KEY = 102, DOWN_KEY = 103};
+enum {LEFT = 0, UP, RIGHT, DOWN};
+
+// Player movement register
+extern bool pressedKeys[4];
 
 // Declare Block Colors
 extern const int wallBlockColor[3];
