@@ -1,20 +1,39 @@
 #ifndef STATE_h
 #define STATE_h
+#include "Block.h"
 
 class Block;
 
-class State
+class EnemyState
 {
 public:
-	virtual ~State();
-	virtual void action(Block* inputBlock);
+	virtual ~EnemyState(){}
+	virtual void action(EnemyBlock &inputBlock){}
 };
 
-// Derived enemy state
-class Idle : public State
+class EnemyContext
+{
+	EnemyState* state;
+public:
+	EnemyContext();
+	void updateState(EnemyBlock &inputBlock);
+};
+
+// Derived enemy states
+class Idle : public EnemyState
 {
 public:
-	void action(Block* inputBlock);
+	void action(EnemyBlock &inputBlock) override;
 };
+
+class FollowPlayer : public EnemyState
+{
+public:
+	void action(EnemyBlock &inputBlock) override;
+};
+
+// Single global state declarations
+extern Idle idle;
+extern FollowPlayer followPlayer;
 
 #endif // STATE_h
