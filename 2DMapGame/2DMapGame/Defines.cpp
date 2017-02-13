@@ -3,7 +3,7 @@
 // Display window dimension size definitions
 const int windowWidth = 640;
 const int windowHeight = 640;
-const double screenScale = 1.1;
+const double screenScale = 1.5;
 
 int map[yDim][xDim] = {
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
