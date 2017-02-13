@@ -30,7 +30,6 @@ int map[yDim][xDim] = {
 // Define pressed keys
 bool pressedKeys[4] = { false, false, false, false };
 int playerSpeed = 6;
-int enemySpeed = 4;
 
 // Define Block Colors
 const int wallBlockColor[3] = { 1, 0, 0 }; // Red
@@ -39,3 +38,7 @@ const int enemyBlockColor[3] = { 0, 1, 0 }; // Green
 
 // Callback timer period
 const int playerUpdatePeriod = 20;
+
+// Enemy defines
+int enemySpeed = 4;
+int detectionRange = 100;
