@@ -1,5 +1,6 @@
 #include "Block.h"
 #include <GL/freeglut.h>
+#include "Map.h"
 
 // Player Init definition
 PlayerBlock myPlayer(10, 10);
@@ -16,7 +17,7 @@ bool Block::collision(const Block* inputBlock) const
 {
 	if (topLeftX >= inputBlock->topLeftX + inputBlock->width ||
 		topLeftX + width <= inputBlock->topLeftX || 
-		topLeftY >= inputBlock->topLeftY + inputBlock->topLeftY || 
+		topLeftY >= inputBlock->topLeftY + inputBlock->height || 
 		topLeftY + height <= inputBlock->topLeftY)
 	{
 		return false;
@@ -52,6 +53,9 @@ void PlayerBlock::drawBlock() const
 
 void PlayerBlock::movePlayer()
 {
+	int prevX = topLeftX;
+	int prevY = topLeftY;
+
 	if (pressedKeys[LEFT])
 	{
 		topLeftX -= speed;
@@ -67,5 +71,11 @@ void PlayerBlock::movePlayer()
 	if (pressedKeys[DOWN])
 	{
 		topLeftY += speed;
+	}
+
+	if (myWallMap.collision(this))
+	{
+		topLeftX = prevX;
+		topLeftY = prevY;
 	}
 }
