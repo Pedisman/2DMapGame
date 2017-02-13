@@ -11,6 +11,7 @@ class WallMap
 public:
 	template <typename T, int Tx, int Ty>
 	WallMap(T(&inputArray)[Tx][Ty]);
+	bool collision(Block* inputBlock);
 
 	void drawMap() const;
 };

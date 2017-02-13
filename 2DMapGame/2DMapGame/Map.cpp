@@ -24,3 +24,16 @@ void WallMap::drawMap() const
 		itr->drawBlock();
 	}
 }
+
+bool WallMap::collision(Block* inputBlock)
+{
+	for (int i = 0 ; i < blocks.size(); ++i)
+	{
+		if (blocks[i].collision(inputBlock))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
