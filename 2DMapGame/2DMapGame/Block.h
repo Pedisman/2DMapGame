@@ -40,10 +40,12 @@ public:
 	EnemyBlock(int x, int y) : Block(x, y){}
 	void drawBlock() const override;
 	void idleMove();
+	void followPlayer();
 };
 
 // Player Block Init
 extern PlayerBlock myPlayer;
+extern EnemyBlock enemy1;
 
 #endif // BLOCK_h
 
