@@ -199,13 +199,11 @@ void EnemyBlock::followPlayer(const Block* player)
 		if (myWallMap.collision(this))
 		{
 			topLeftX = prevX;
-			//topLeftY = prevY += signY * abs(tempSpeed);
 		}
 		topLeftY += signY * abs(newY);
 		if (myWallMap.collision(this))
 		{
 			topLeftY = prevY;
-			//topLeftX = prevX += signX * abs(tempSpeed);
 		}
 	}
 
