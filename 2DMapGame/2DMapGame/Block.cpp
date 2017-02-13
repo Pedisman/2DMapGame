@@ -145,11 +145,12 @@ void EnemyBlock::drawBlock() const
 
 void EnemyBlock::idleMove()
 {
+	topLeftX += speed;
 	if (myWallMap.collision(this))
 	{
 		speed = -speed;
+		topLeftX += 2*speed;
 	}
-	topLeftX += speed;
 }
 
 void EnemyBlock::followPlayer(const Block* player)
@@ -169,10 +170,18 @@ void EnemyBlock::followPlayer(const Block* player)
 	if (tempX == 0)
 	{
 		topLeftY += signY * abs(tempSpeed);
+		if (myWallMap.collision(this))
+		{
+			topLeftY = prevY;
+		}
 	}
 	else if (tempY == 0)
 	{
 		topLeftX += signX * abs(tempSpeed);
+		if (myWallMap.collision(this))
+		{
+			topLeftX = prevX;
+		}
 	}
 	//else if (abs(tempY) <= abs(speed) + 1 && abs(tempX) <= abs(speed) + 1)
 	else if (tempY == 0 && tempX == 0)
@@ -187,7 +196,17 @@ void EnemyBlock::followPlayer(const Block* player)
 		auto newY = ratio * newX;
 
 		topLeftX += signX * abs(newX);
+		if (myWallMap.collision(this))
+		{
+			topLeftX = prevX;
+			//topLeftY = prevY += signY * abs(tempSpeed);
+		}
 		topLeftY += signY * abs(newY);
+		if (myWallMap.collision(this))
+		{
+			topLeftY = prevY;
+			//topLeftX = prevX += signX * abs(tempSpeed);
+		}
 	}
 
 	if (this->collision(player))
