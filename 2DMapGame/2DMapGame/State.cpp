@@ -5,10 +5,22 @@
 Idle idle;
 FollowPlayer followPlayer;
 
+Idle::Idle()
+{
+	strncpy_s(name, "Idle", 20);
+}
+
+
 void Idle::action(EnemyBlock &inputBlock)
 {
 	inputBlock.idleMove();
 }
+
+FollowPlayer::FollowPlayer()
+{
+	strncpy_s(name, "FollowPlayer", 20);
+}
+
 
 void FollowPlayer::action(EnemyBlock& inputBlock)
 {

@@ -6,6 +6,8 @@ class Block;
 
 class EnemyState
 {
+protected:
+	char name[20] = {'\0'};
 public:
 	virtual ~EnemyState(){}
 	virtual void action(EnemyBlock &inputBlock){}
@@ -25,12 +27,14 @@ public:
 class Idle : public EnemyState
 {
 public:
+	Idle();
 	void action(EnemyBlock &inputBlock) override;
 };
 
 class FollowPlayer : public EnemyState
 {
 public:
+	FollowPlayer();
 	void action(EnemyBlock &inputBlock) override;
 };
 
