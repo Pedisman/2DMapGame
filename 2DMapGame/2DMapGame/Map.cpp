@@ -1,7 +1,7 @@
 #include "Map.h"
 
-WallMap myWallMap(map);
-EnemyMap myEnemyMap(map);
+WallMap myWallMap;
+EnemyMap myEnemyMap;
 
 void GameMap::drawMap() const
 {
@@ -24,21 +24,42 @@ bool GameMap::collision(Block* inputBlock)
 	return false;
 }
 
-// Wall Map definition
-
-template <typename T, int Ty, int Tx>
-WallMap::WallMap(T(&inputArray)[Ty][Tx])
+template <typename T, int Tx, int Ty>
+void GameMap::initMap(T(&inputArray)[Ty][Tx], int blockType, std::vector<Block*> &inputVec)
 {
-	for (int i = 0; i < Ty; ++i)
+	inputVec.clear();
+	switch(blockType)
 	{
-		for (int j = 0; j < Tx; ++j)
+	case WALL_BLOCK:
+		for (int i = 0; i < Ty; ++i)
 		{
-			if (map[i][j] == WALL_BLOCK)
+			for (int j = 0; j < Tx; ++j)
 			{
-				blocks.push_back(new WallBlock(j, i));
+				if (map[i][j] == WALL_BLOCK)
+				{
+					inputVec.push_back(new WallBlock(j, i));
+				}
+			}
+		}
+	case ENEMY_BLOCK:
+		for (int i = 0; i < Ty; ++i)
+		{
+			for (int j = 0; j < Tx; ++j)
+			{
+				if (map[i][j] == ENEMY_BLOCK)
+				{
+					inputVec.push_back(new EnemyBlock(j, i));
+				}
 			}
 		}
 	}
+}
+
+// Wall Map definition
+
+WallMap::WallMap()
+{
+	initMap(map, WALL_BLOCK, this->blocks);
 }
 
 WallMap::~WallMap()
@@ -51,19 +72,9 @@ WallMap::~WallMap()
 
 // Enemy Map
 
-template <typename T, int Ty, int Tx>
-EnemyMap::EnemyMap(T(&inputArray)[Ty][Tx])
+EnemyMap::EnemyMap()
 {
-	for (int i = 0; i < Ty; ++i)
-	{
-		for (int j = 0; j < Tx; ++j)
-		{
-			if (map[i][j] == ENEMY_BLOCK)
-			{
-				blocks.push_back(new EnemyBlock(j, i));
-			}
-		}
-	}
+	initMap(map, ENEMY_BLOCK, this->blocks);
 }
 
 EnemyMap::~EnemyMap()

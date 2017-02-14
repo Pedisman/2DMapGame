@@ -14,22 +14,23 @@ public:
 
 	void drawMap() const;
 
+	template <typename T, int Tx, int Ty>
+	void initMap(T(&inputArray)[Ty][Tx], int blockType, std::vector<Block*> &inputVec);
+
 	virtual ~GameMap(){}
 };
 
 class WallMap : public GameMap
 {
 public:
-	template <typename T, int Tx, int Ty>
-	WallMap(T(&inputArray)[Tx][Ty]);
+	WallMap();
 	~WallMap();
 };
 
 class EnemyMap : public GameMap
 {
 public:
-	template <typename T, int Tx, int Ty>
-	EnemyMap(T(&inputArray)[Tx][Ty]);
+	EnemyMap();
 
 	void updateEnemies();
 
